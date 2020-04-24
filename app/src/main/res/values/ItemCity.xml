@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listCity">
+        <item>AM</item>
+        <item>RN</item>
+        <item>SP</item>
+        <item>PE</item>
+        <item>JP</item>
+        <item>GO</item>
+        <item>RJ</item>
+        <item>PA</item>
+    </string-array>
+</resources>

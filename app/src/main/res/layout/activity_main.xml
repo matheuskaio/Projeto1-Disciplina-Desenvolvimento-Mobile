@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Casos de COVID-19 no Brasil e Estados"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Selecione o estado:" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/buttonRecuperar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Buscar Estado" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:text="BRASIL"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textAtualizacaoBrasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:text="Atualizado:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textConfirmadoBrasil"
+                android:layout_width="50dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:layout_weight="15"
+                android:background="@drawable/rounded_corner_blue"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="Confirmados"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textMortosBrasil"
+                android:layout_width="50dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:layout_weight="15"
+                android:background="@drawable/rounded_corner_red"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="Mortos"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textSuspeitosBrasil"
+                android:layout_width="50dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:layout_weight="15"
+                android:background="@drawable/rounded_corner_orange"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="Suspeitos"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textDescartadosBrasil"
+                android:layout_width="50dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:layout_weight="15"
+                android:background="@drawable/rounded_corner_green"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="Descartados"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:text="Brasil"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/textSuspeitos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Suspeito"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/textConfirmados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Confirmado"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/textMortos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Mortos"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/textRecuperados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Recuperados"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+        <TextView
+            android:id="@+id/textAtualizacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Atualizado em:"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto" />
+
+    </LinearLayout>
+</ScrollView>
