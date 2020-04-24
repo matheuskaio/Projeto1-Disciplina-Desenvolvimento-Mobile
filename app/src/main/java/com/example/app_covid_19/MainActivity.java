@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,7 +27,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Button buttonRecuperar, buttonBrasil;
+    private Button buttonRecuperar;
     private TextView textResultado, textRecuperados, textSuspeitos, textMortos, textConfirmados, textAtualizacao,
             textConfirmadoBrasil, textDescartadosBrasil, textSuspeitosBrasil, textMortosBrasil, textAtualizacaoBrasil;
     private Spinner spinner;
@@ -39,20 +38,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         iniciarComponentes();
-        dadosIniciais();
 
-//        buttonBrasil.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dadosIniciais();
-//            }
-//        });
+        dadosIniciais();
 
         buttonRecuperar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyTask task = new MyTask();
-//                String urlApi = "https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/rn";
                 String urlApi = "https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/";
                 task.execute(urlApi);
             }
@@ -67,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
     void iniciarComponentes(){
         buttonRecuperar = findViewById(R.id.buttonRecuperar);
-//        buttonBrasil = findViewById(R.id.buttonBrasil);
 
         textResultado= findViewById(R.id.textResultado);
         textRecuperados= findViewById(R.id.textRecuperados);
@@ -160,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 jsonObject = new JSONObject(resultado);
-                Log.d("Mizera 1", jsonObject.toString());
 
                 pais = jsonObject.getString("state");
                 suspeitos = jsonObject.getString("suspects");
@@ -188,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             textConfirmados.setVisibility(View.VISIBLE);
             textMortos.setText("☠ Mortos: "+ mortos);
             textMortos.setVisibility(View.VISIBLE);
-            textAtualizacao.setText("\uD83D\uDDD3 Atualizado em: "+ atualizacao);
+            textAtualizacao.setText("\uD83D\uDDD3 Atualizado em "+ atualizacao);
             textAtualizacao.setVisibility(View.VISIBLE);
 
         }
@@ -242,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String resultado) {
             super.onPostExecute(resultado);
 
-            String pais = null;
             String suspeitos = null;
             String confirmados = null;
             String mortos = null;
@@ -254,9 +243,7 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject = new JSONObject(resultado);
 
                 JSONObject data = jsonObject.getJSONObject("data");
-                Log.d("Mizera", data.toString());
 
-//                pais = data.getString("country");
                 suspeitos = data.getString("cases");
                 confirmados = data.getString("confirmed");
                 mortos = data.getString("deaths");
@@ -271,12 +258,11 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException | ParseException e) {
                 e.printStackTrace();
             }
-//            textResultado.setText("\uD83C\uDDE7\uD83C\uDDF7 " +pais);
             textDescartadosBrasil.setText(recuperados+"\n Descartados");
             textSuspeitosBrasil.setText(suspeitos+ "\n Suspeitos");
             textConfirmadoBrasil.setText(confirmados+ "\n Confirmados");
             textMortosBrasil.setText(mortos+ "\n Mortos");
-            textAtualizacaoBrasil.setText("\uD83D\uDDD3 Atualizado em: "+ atualizacao);
+            textAtualizacaoBrasil.setText("\uD83D\uDDD3 Atualizado em "+ atualizacao);
         }
     }
 }
